@@ -181,6 +181,7 @@ module Fluent::Plugin
       }
       if res.is_a?(Net::HTTPSuccess)
         data = JSON.parse(res.body)
+        log.debug "Token reponse: #{data}"
         token = data["access_token"]
       else
         raise Fluent::UnrecoverableError, "Failed to acquire access token. #{res.code}: #{res.body}"
