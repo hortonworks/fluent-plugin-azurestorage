@@ -169,7 +169,7 @@ module Fluent::Plugin
       uri = URI('http://169.254.169.254/metadata/identity/oauth2/token')
       params = { :"api-version" => "2018-02-01", :resource => "https://storage.azure.com/" }
       unless @azure_instance_msi.nil?
-        params[:object_id] = @azure_instance_msi
+        params[:msi_res_id] = @azure_instance_msi
       end
       uri.query = URI.encode_www_form(params)
 
